@@ -4,9 +4,9 @@
 
 <instance-profile id="br"
                  name="Bioinformatics Resources"
-                 start-page="02-Bioinformatics-Pipeline-Setup.md">
+                 start-page="Bioinformatics-Pipeline-Setup.md">
 
-    <toc-element topic="02-Bioinformatics-Pipeline-Setup.md"/>
+    <toc-element topic="Bioinformatics-Pipeline-Setup.md"/>
     <toc-element topic="Genome-Assembly-on-the-Command-Line.md"/>
     <toc-element topic="Reference-Based-Genome-Assembly-Appendix.md"/>
 </instance-profile>

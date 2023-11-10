@@ -107,7 +107,7 @@ scripts you also downloaded. These instructions will automatically install all o
 bioinformatics scripts. In order to follow these instructions (and load someone else’s compute environment on your 
 computer), you’ll need to first install a piece of software that can read these instructions. 
 
-There are a few different softwares that can be used to build environments. <control>Mamba</control> and 
+There are a few different programs that can be used to build environments. <control>Mamba</control> and 
 <control>Conda</control> are very common options. We will use Mamba because it tends to work faster 
 than Conda, but if you are ever working with another set of instructions that uses 
 Conda instead, know that you are doing something very similar!

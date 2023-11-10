@@ -11,10 +11,12 @@ The first genome assembly step is to take the paired-end FASTQ files produced by
 against a reference genome. 
 This will generate a BAM file for each sample that is needed for future steps of the pipeline.
 
-> By default, the pipeline will align reads against a Vibrio cholerae reference. 
-> If you are studying another pathogen, you can change the "<i>reference</i>" parameters in 
-> <code>[<control>project-path</control>]/config.yaml</code> to another reference sequence.
-> {style="note"}
+<note>
+    By default, the pipeline will align reads against a Vibrio cholerae reference. 
+    If you are studying another pathogen, you can change the "<i>reference</i>" parameters in 
+    <code>[<control>project-path</control>]/config.yaml</code> to another reference sequence.
+    {style="note"}
+</note>
 
 <procedure type="steps">
     <step>

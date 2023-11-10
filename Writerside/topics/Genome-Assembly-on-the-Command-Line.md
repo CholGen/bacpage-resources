@@ -15,7 +15,7 @@ your project directory* below).
         This tutorial assumes you have set up the bioinformatics pipeline directory on your computer Before starting the
         tutorial below, check if your computer has a folder called <path>bacpage/</path> in the home directory. If you 
         do not have this folder on your computer, complete the 
-        <a href="02-Bioinformatics-Pipeline-Setup.md">Bioinformatics Pipeline Setup</a> instructions to install the 
+        <a href="Bioinformatics-Pipeline-Setup.md">Bioinformatics Pipeline Setup</a> instructions to install the 
         necessary files and software before proceeding.
     </step>
 </procedure>
@@ -36,7 +36,7 @@ individual step of a pipeline. Snakemake makes it easier to conduct analyses by 
 to type, parallelizing steps across all your samples, and confirming steps were completed successfully.</p> 
 
 Below, you’ll find instructions to use snakemake to run the whole pipeline all at once, as well as instructions 
-(in the <a href="starter-topic.md">Appendix</a>) that walk you through each of the above steps one by one. 
+(in the <a href="Reference-Based-Genome-Assembly-Appendix.md">Appendix</a>) that walk you through each of the above steps one by one. 
 
 ## STEP 0: Project Directory Setup
 Before starting any bioinformatics analysis, it is good practice to create a directory specifically for the dataset you 

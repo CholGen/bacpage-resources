@@ -48,10 +48,10 @@ These differences are called variants and describe evolution of the sample from 
         </code-block>
         This command calls variants for each sample indicated in the sample_data.csv file, filters low-quality and 
         unsupported variants, and normalizes insertions and deletions. 
-        A Variant Call Format file (VCF file) will be generated for each sample with the format 
+        These variants are collected for each sample in a Variant Call Format file (VCF file) named 
         <code><control>[sample]</control>.filt.norm.vcf.gz</code>
         (see the description of the VCF format on <a href="https://en.wikipedia.org/wiki/Variant_Call_Format">Wikipedia</a>). 
-        VCF files for every sample can be found in <code><control>[project-path]</control>/intermediates/illumina/variants/</code>
+        <p>VCF files for every sample can be found in <code><control>[project-path]</control>/intermediates/illumina/variants/</code></p>
     </step>
 </procedure>
 
@@ -68,7 +68,7 @@ Because this genome is a summary of many sequencing reads, we call this sequence
         </code-block>
     This command generates a consensus sequence for each sample indicated in the <code>sample_data.csv</code> file. 
     A FASTA file containing the consensus sequence will be generated for each sample with the format <code><control>[sample]</control>.consensus.fasta</code>. 
-    FASTA files for every sample can be found in <code><control>[project-path]</control>/intermediates/illumina/consensus/</code>.
+    <p>FASTA files for every sample can be found in <code><control>[project-path]</control>/intermediates/illumina/consensus/</code>.</p>
     </step>
 </procedure>
 
@@ -90,7 +90,7 @@ another organism-specific mask.
         </code-block>
         This command masks the consensus sequence for each of your samples. 
         A FASTA file containing the masked consensus sequence will be generated for each sample with the format <code><control>[sample]</control>.masked.fasta</code>.
-        Masked FASTA files for every sample can be found in: <code><control>[project-path]</control>/intermediates/illumina/consensus/</code>
+        <p>Masked FASTA files for every sample can be found in: <code><control>[project-path]</control>/intermediates/illumina/consensus/</code></p>
     </step>
 </procedure>
 
@@ -106,10 +106,10 @@ sequences.
         <code-block lang="bash">
             snakemake --configfile [project-path]/config.yaml --cores [number-of-processors] --keep-going --until generate_complete_report
         </code-block>
-        This command  generates a single HTML report containing quality metrics for all samples. The HTML report can be 
-        found in <code><control>[project-path]</control>/results/reports/qc_report.html</code>.
+        This command  generates a single HTML report containing quality metrics for all samples. 
+        The HTML report can be found in <code><control>[project-path]</control>/results/reports/qc_report.html</code>.
     </step>
     <step>
-        2. Open this file with a web browser.
+        Open this file with a web browser.
     </step>
 </procedure>

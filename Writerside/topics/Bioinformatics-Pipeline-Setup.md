@@ -29,10 +29,10 @@ This tutorial will take you through the two main steps of loading a bioinformati
 Unless otherwise stated, all commands should be run in your home directory. Generally this is where the command line is 
 located if you open a new command prompt (i.e., Terminal window).
 <procedure type="steps">
-<step>
-If you are not in your home directory (or are unsure), move to your home directory with this command: 
-<code-block lang="bash">pwd</code-block>
-</step>
+    <step>
+        If you are not in your home directory (or are unsure), move to your home directory with this command: 
+        <code-block lang="bash">pwd</code-block>
+    </step>
 </procedure>
 
 ## STEP 1: Download the Bioinformatics Pipeline
@@ -45,7 +45,7 @@ via the command line. To perform bacterial genomics assembly using CholGen pipel
     <tab title="Command line">
         <procedure type="steps">
             <step>
-                Install the git command line program using the following command\
+                Install the git command line program using the following command:
                 <code-block lang="bash">sudo apt install git-all</code-block>
                 <note>
                     This command will prompt you for your password. When entering your password on the command line, no 
@@ -61,15 +61,15 @@ via the command line. To perform bacterial genomics assembly using CholGen pipel
             <step>
                 Check the download was correct by viewing the contents of your home directory:
                 <code-block lang="bash" >ls</code-block>
-                You should see a new directory in your home directory with the name <path>bacpage/</path>.
+                You should see a new directory in your home directory with the name <code>bacpage/</code>.
                 <p>This procedure can be used to download any other pipeline hosted on the GitHub website. If you are 
                 interested in loading a different pipeline than the one used here, simply replace the URL in Step 2 with
                 the link found on the other pipeline’s GitHub page.</p>
             </step>
             <step>
-                Confirm that the genome assembly and analysis folder (<path>bacpage/</path>) contains 5 sub-folders: 
-                <path>config/</path>, <path>example/</path>, <path>resources/</path>, <path>test/</path>, and 
-                <path>workflow/</path>.
+                Confirm that the genome assembly and analysis folder (<code>bacpage/</code>) contains 5 sub-folders: 
+                <code>config/</code>, <code>example/</code>, <code>resources/</code>, <code>test/</code>, and 
+                <code>workflow/</code>.
             </step>
         </procedure>
     </tab>
@@ -138,19 +138,23 @@ web.
         installed software, run <code>mamba deactivate</code>). When you leave the mamba environment, you will no longer
         be able to access software that you installed when you were inside the mamba environment. To get back into the 
         <control>base</control> mamba environment, run <code>mamba activate</code>).</tip>
-        Rather than installing everything to the base environment, it’s recommended to create task-specific 
-        environments, containing only software that is needed for a given task. We are now going to create a new 
-        environment with a different name that will specifically have the assembly pipeline software in it. 
     </step>
+</procedure>
+
+Rather than installing everything to the base environment, it’s recommended to create task-specific 
+environments, containing only software that is needed for a given task. We are now going to create a new 
+environment with a different name that will specifically have the assembly pipeline software in it. 
+
+<procedure title="Setting up the pipeline environment">
     <step>
         Navigate to the directory where you downloaded the bioinformatics pipeline above. This should be a directory 
-        titled <path>bacpage/</path> in your home directory. 
+        titled <code>bacpage/</code> in your home directory. 
         <code-block lang="bash" >cd ~/bacpage</code-block>
         You will need to navigate to this directory any time you want to use the pipeline you downloaded from GitHub 
         above. Run <code>pwd</code> and note the path of this directory for future reference.
     </step>
     <step>
-        Inside this directory you will find a file called <path>environment.yaml</path>. Feel free to open it in a text 
+        Inside this directory you will find a file called <code>environment.yaml</code>. Feel free to open it in a text 
         editor and look at its structure. The file describes all the software that is required for the pipeline. To tell
         the computer to install all of this software, run the following command:
         <code-block lang="bash">mamba env create -f environment.yaml</code-block>
@@ -166,7 +170,7 @@ web.
         Your prompt should have changed again to the following:
         <p><code>(bacpage) [seqlaptop@linuxbox bacpage]$</code></p>
         <p>This indicates that your terminal is now using the <control>bacpage</control> environment and can use all the
-        required software. Use <code>mamba deactivate</code> to return to the default “base” environment.</p>
+        required software. Use <code>mamba deactivate</code> to return to the default <control>base</control> environment.</p>
     </step>
     <step>
         We will explain this command in more depth later, but run the following to test whether the installation was 

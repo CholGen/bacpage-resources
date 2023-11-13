@@ -36,15 +36,16 @@ individual step of a pipeline. Snakemake makes it easier to conduct analyses by 
 to type, parallelizing steps across all your samples, and confirming steps were completed successfully.</p> 
 
 Below, you’ll find instructions to use snakemake to run the whole pipeline all at once, as well as instructions 
-(in the <a href="Reference-Based-Genome-Assembly-Appendix.md">Appendix</a>) that walk you through each of the above steps one by one. 
+(in the <a href="Reference-Based-Genome-Assembly-Appendix.md">Appendix</a>) that walk you through each of the above 
+steps one by one. 
 
 ## STEP 0: Project Directory Setup
 Before starting any bioinformatics analysis, it is good practice to create a directory specifically for the dataset you 
 are about to analyze. This directory is where you will run analyzes and save outputs and is called your project 
-directory. You will want to set up your project directory inside the <path>bacpage/</path> folder in your HOME directory
+directory. You will want to set up your project directory inside the <code>bacpage/</code> folder in your HOME directory
 to ensure all sequencing data and results are in the same place and can use the same pipeline tools and software.
-We will refer to the path of the <path>bacpage/</path> folder as <b>[sequencing-path]</b>. On most machines, the 
-<b>[sequencing-path]</b> will be <path>~/bacpage</path>.
+We will refer to the path of the <code>bacpage/</code> folder as <b>[sequencing-path]</b>. On most 
+machines, the <b>[sequencing-path]</b> will be <code>~/bacpage</code>.
 
 <procedure type="steps">
     <step>
@@ -52,11 +53,11 @@ We will refer to the path of the <path>bacpage/</path> folder as <b>[sequencing-
         <code-block lang="bash" >cd ~/bacpage</code-block> 
     </step>
     <step>
-        In the <path>bacpage/</path> folder there is a sub-folder called <path>example/</path>. The first step is to 
+        In the <code>bacpage/</code> folder there is a sub-folder called <code>example/</code>. The first step is to 
         make a copy of this folder. You will make a new copy every time you perform a new sequencing run, thus ensuring 
         that the files and folders inside the example directory are set up in the exact same way each time. To copy this
         folder and give it a project-specific name, run the command below. We recommend that you give your project 
-        directory an informative name, such as <control>[date]_[sequencing-run-name]</control> (for example: 
+        directory an informative name, such as <b>[date]_[sequencing-run-name]</b> (for example: 
         <i>20220609_cholera_run1</i>).
         <p>Type the following into your terminal window and then press Enter:</p>
         <code-block lang="bash" >cp -R example/ [project-directory-name]</code-block>
@@ -67,26 +68,35 @@ We will refer to the path of the <path>bacpage/</path> folder as <b>[sequencing-
             cd [project-directory-name]
             pwd
         </code-block>
-        We will refer to the absolute path to your project directory as <b>[project-path]</b>. You will need the 
-        absolute path for your project directory in Step 6 below.
+        We will refer to the absolute path to your project directory as <b>[project-path]</b>. You will 
+        need the absolute path for your project directory in Step 6 below.
     </step>
     <step>
         Locate the input data you want to use in the assembly pipeline. This pipeline requires demultiplexed FASTQ files
         (i.e., two FASTQ files per sample). Using the file finder on your computer, move this data into the 
-        <path>input/</path> directory of your project directory (i.e., the folder you just created above).
+        <code>input/</code> directory of your project directory (i.e., the folder you just created above).
     </step>
     <step>
-        Within your project directory, there should be a file called <path>sample_data.csv</path>, which will hold the 
+        Within your project directory, there should be a file called <code>sample_data.csv</code>, which will hold the 
         information about your samples. Open this file in Excel or a similar spreadsheet software, and add the 
         information for each of your samples on an individual row.
-        <p>In the <control>sample</control> column, record the name or identifier of each sample (these must be unique 
-        and not contain unusual characters like periods “.” or slashes “/”). In the <control>read1</control> column, 
-        record the absolute path of the FASTQ file corresponding to the first set of reads for a sample (generally 
-        containing “R1” in the filename). In the <control>read2</control> column, record the absolute path of the FASTQ 
-        file corresponding to the first set of reads for a sample (generally containing “R2” in the filename).</p>
+        <list>
+            <li>
+                In the <control>sample</control> column, record the name or identifier of each sample (these must be 
+                unique and not contain unusual characters like periods “.” or slashes “/”).
+            </li>
+            <li>
+                In the <control>read1</control> column, record the absolute path of the FASTQ file corresponding to the 
+                first set of reads for a sample (generally containing “R1” in the filename).
+            </li>
+            <li>
+                In the <control>read2</control> column, record the absolute path of the FASTQ file corresponding to the 
+                first set of reads for a sample (generally containing “R2” in the filename).
+            </li>
+        </list>
         <note>
             The absolute path of a file can be determined with the <code>pwd</code> command. If your demultiplexed FASTQ
-            files were placed in the <path>input/</path> directory of your project directory as described above, you can
+            files were placed in the <code>input/</code> directory of your project directory as described above, you can
             find their absolute path by running the following command:
             <code-block lang="bash">
                 cd [project-path]/input
@@ -94,7 +104,7 @@ We will refer to the path of the <path>bacpage/</path> folder as <b>[sequencing-
             </code-block>
             The absolute path of your files will be the output of pwd plus “/” plus the file name.
         </note>
-        An example completed <path>sample_data.csv</path> file is shown below:
+        An example completed <path>sample_data.csv</path> file will look like the following:
         <table>
         <tr>
         <td>sample</td><td>read1</td><td>read2</td>
@@ -112,12 +122,14 @@ We will refer to the path of the <path>bacpage/</path> folder as <b>[sequencing-
     </step>
     <step>Save the file after entering the data for your samples.</step>
     <step>
-        Within your project directory, open the configuration file called <path>config.yaml</path> with a text editor of
+        Within your project directory, open the configuration file called <code>config.yaml</code> with a text editor of
         your choice. This file contains the parameters and options for the analysis. Parameters may be altered to suit 
         your analysis, however the default options should be appropriate for most analysis.
-        <p>With the configuration file open in a text editor, replace <control>[project-path]</control> and 
-        <control>[sequencing-path]</control> with their absolute paths for the first six parameters.</p>
-        <code-block lang="yaml" >
+    </step>
+    <step>
+        In the configuration file, replace <control>[project-path]</control> and <control>[sequencing-path]</control> with their absolute paths for
+        the first six parameters.
+        <code-block lang="yaml">
             # General parameters; point to input files.
             run_type: "Illumina"
             samples: "[project-path]/sample_data.csv"
@@ -129,8 +141,9 @@ We will refer to the path of the <path>bacpage/</path> folder as <b>[sequencing-
     </step>
     <step>
         Lastly, determine how many processors are available on your computer, since using more processors will make the 
-        pipeline run faster. The output of the following command will indicate how many processors you have available. 
-        Run the command below, specific to your operating system, and write down the result for later:
+        pipeline run faster.
+        Run the command below, specific to your operating system, to determine how many processors you have available 
+        and write down the result for later:
         <tabs>
             <tab title="Linux">
                 <code-block lang="bash" >grep ^processor /proc/cpuinfo | wc -l</code-block>
@@ -156,11 +169,13 @@ consensus sequences and calculate quality metrics with a single command.
             snakemake --configfile [project-path]/config.yaml --cores [number-of-processors] --keep-going --until mask_consensus generate_complete_report
         </code-block>
         This will generate a consensus sequence in FASTA format for each of your samples and place them in 
-        <path>[project-path]/results/consensus_sequences/[sample].masked.fasta</path>. An HTML report containing 
-        alignment and quality metrics for your samples can be found at 
-        <path>[project-path]/results/reports/qc_report.html</path>.
-</step>
-</procedure>    
+        <code><b>[project-path]</b>/results/consensus_sequences/<b>[sample]</b>.masked.fasta</code>. 
+        <p/>An HTML report 
+        containing alignment and quality metrics for your samples can be found at 
+        <code><b>[project-path]</b>/results/reports/qc_report.html</code>.
+    </step>
+</procedure>  
+
 <tip>
     If a snakemake command is successfully completed, you should see something like this on the screen:
     <code-block>
@@ -192,7 +207,7 @@ A key component of generating genome assemblies is assessing their quality. The 
 report to visually inspect the quality, coverage, and confidence we have in the resultant consensus sequences.
 <procedure type="steps">
     <step>
-        To review the quality metrics of your samples, open <path>[project-path]/results/reports/qc_report.html</path> 
+        To review the quality metrics of your samples, open <code><b>[project-path]</b>/results/reports/qc_report.html</code> 
         with a web browser.
     </step>
 </procedure>

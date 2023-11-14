@@ -19,7 +19,7 @@ The process comprises five main steps, including a sequence assessment step:
 5. Assess the quality of raw sequencing reads and assemblies.
 
 
-## STEP 1: Running the assembly pipeline
+## Running the assembly pipeline
 Running the pipeline is easiest from your project directory.
 If you have not created a project directory yet, complete the <a href="Creating-a-Project-Directory.md">Creating a
 Project Directory</a> instructions to generate it.
@@ -32,6 +32,10 @@ Project Directory</a> instructions to generate it.
         Generate an annotated assembly and calculate quality metrics for each sample in your project directory with a 
         single command:
         <code-block>bacpage assemble --denovo .</code-block>
+        <note>
+            This is the same command used to perform reference-based assembly, just with the <code>--denovo</code> 
+            option.
+        </note>
     </step>
 </procedure>
 

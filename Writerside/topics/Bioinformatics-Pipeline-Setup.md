@@ -31,7 +31,7 @@ located if you open a new command prompt (i.e., Terminal window).
 <procedure type="steps">
     <step>
         If you are not in your home directory (or are unsure), move to your home directory with this command: 
-        <code-block lang="bash">pwd</code-block>
+        <code-block lang="bash">cd ~/</code-block>
     </step>
 </procedure>
 
@@ -117,7 +117,7 @@ environment on your computer. Please note that you will need a network connectio
 downloading Mamba from the internet, and then using the Mamba software to download other programs and software from the 
 web.
 
-<procedure title="Installing Mamba" id="installing_mamba" type="steps">
+<procedure title="Installing Mamba" type="steps">
     <step>
         Navigate to your home directory with the following command:
         <code-block lang="bash" >cd ~/</code-block>

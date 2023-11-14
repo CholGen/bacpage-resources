@@ -32,6 +32,10 @@ Project Directory</a> instructions to generate it.
         Generate consensus sequences and calculate quality metrics for the samples in your project directory with a 
         single command:
         <code-block>bacpage assemble .</code-block>
+        <note>
+            This command might take a long time to complete depending on the number of samples being processed, and 
+            the cores available on your computer
+            </note>
     </step>
 </procedure>
 
@@ -54,8 +58,8 @@ It can be opened and viewed in any web browser.
         use with the <code>--threads</code> option.
     </step>
     <step>
-        By default, the pipeline will align reads against a *Vibrio cholerae* reference included with the program. 
-        If you are studying another pathogen, you can change the "<i>reference</i>" parameters in 
+        By default, the pipeline will align reads against a <i>Vibrio cholerae</i> reference included with the program. 
+        If you are studying another pathogen, you can change the "<i>reference</i>" parameter in 
         <code>config.yaml</code> to another reference sequence (must be in FASTA format).
     </step>
 </procedure>

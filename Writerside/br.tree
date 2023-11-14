@@ -7,6 +7,12 @@
                  start-page="Bioinformatics-Pipeline-Setup.md">
 
     <toc-element topic="Bioinformatics-Pipeline-Setup.md"/>
+    <toc-element topic="bacpage-Command.topic">
+        <toc-element topic="bacpage-command-overview.md"/>
+        <toc-element topic="Creating-a-Project-Directory.md"/>
+        <toc-element topic="Reference-based-Assembly.md"/>
+        <toc-element topic="De-novo-Assembly.md"/>
+    </toc-element>
     <toc-element topic="Genome-Assembly-on-the-Command-Line.md"/>
     <toc-element topic="Reference-Based-Genome-Assembly-Appendix.md"/>
 </instance-profile>

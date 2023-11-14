@@ -11,4 +11,20 @@
         </description>
         <accepts>starter-topic.html</accepts>
     </rule>
+    <rule id="6f1d2a9b">
+        <description>Created after removal of "bacpage Command" from Bioinformatics Resources</description>
+        <accepts>bacpage-Command.html</accepts>
+    </rule>
+    <rule id="5f18663e">
+        <description>Created after removal of "test_starting_page" from Bioinformatics Resources</description>
+        <accepts>test-starting-page.html</accepts>
+    </rule>
+    <rule id="48d09a50">
+        <description>Created after removal of "Empty XML Topic" from Bioinformatics Resources</description>
+        <accepts>Empty-XML-Topic.html</accepts>
+    </rule>
+    <rule id="43044188">
+        <description>Created after removal of "test" from Bioinformatics Resources</description>
+        <accepts>test.html</accepts>
+    </rule>
 </rules>

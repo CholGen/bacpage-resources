@@ -2,4 +2,5 @@
 <!DOCTYPE terms SYSTEM "https://resources.jetbrains.com/writerside/1.0/glossary.dtd">
 <terms>
     <term name="sample">This is the tooltip for sample</term>
+    <term name="HOME">The directory which contains all of your files and directories. The current working directory upon opening a command line.</term>
 </terms>

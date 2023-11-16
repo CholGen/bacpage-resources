@@ -40,6 +40,11 @@ Project Directory</a> instructions to generate it.
             This is the same command used to perform reference-based assembly, just with the <code>--denovo</code> 
             option.
         </note>
+        <note>
+            De novo assembly is much more computationally intensive than reference-based assembly. Depending on the 
+            number of samples you have and the speed of your computer, it's not uncommon for this command to take 
+            hours to complete.
+        </note>
     </step>
 </procedure>
 

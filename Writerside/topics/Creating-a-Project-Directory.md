@@ -1,4 +1,4 @@
-# Creating a Project Directory
+# 2. Creating a Project Directory
 <card-summary >
     Prepare for an analysis by creating a project directory to hold all the files for your analysis
 </card-summary>
@@ -7,7 +7,21 @@ The first step for setting up a **bacpage** analysis is creating a directory spe
 to analyze.
 This directory is where you will run analyzes and save outputs and is called your **project directory**.
 
-<include from="Genome-Assembly-on-the-Command-Line.md" element-id="intro-table"/>
+<procedure title="Important notes for following this tutorial" id="intro-table">
+    <step>
+        <code>Text with a gray background in monospace font</code> represents commands to type in.
+    </step>
+    <step>
+        <b>Bold text surrounded by []</b> is something you will have to replace with your own folder, path, or sample 
+        name.
+    </step>
+    <step>
+        This tutorial assumes you have set up the bioinformatics pipeline on your computer before starting the
+        tutorial below, check if you can run the <code>bacpage</code> command on the command line. If you cannot, 
+        complete the <a href="Bioinformatics-Pipeline-Setup.md">Bioinformatics Pipeline Setup</a> instructions to  
+        install the necessary files and software before proceeding.
+    </step>
+</procedure>
 
 We recommend you set up your project directory in your <tooltip term="HOME">HOME directory</tooltip> to ensure all 
 sequencing data and results are in the same place.

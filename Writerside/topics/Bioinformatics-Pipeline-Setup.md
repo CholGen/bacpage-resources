@@ -12,8 +12,9 @@ hosted on GitHub.
         between commands to indicate when multiple commands are present.
     </step>
     <step>
-        <path>Monospace blue text with a white background</path> represents the input and/or output of the terminal. Due
-        to different terminal programs, the appearance of your terminal may look different. 
+        <path><format color="CornflowerBlue">Monospace blue text with a white background</format></path> represents the 
+        input and/or output of the terminal. Due to different terminal programs, the appearance of your terminal may 
+        look different. 
     </step>
     <step>
         <b>Bold text surrounded by []</b> is something you will have to replace with your own folder, path, or sample 
@@ -50,7 +51,7 @@ via the command line. To perform bacterial genomics assembly using CholGen pipel
                 <note>
                     This command will prompt you for your password. When entering your password on the command line, no 
                     characters will appear. However, the command line will still be receiving input so be sure to type 
-                    your password correctly before pressing Enter.
+                    your password correctly before pressing <shortcut>Enter</shortcut>.
                 </note>
             </step>
             <step >
@@ -62,12 +63,12 @@ via the command line. To perform bacterial genomics assembly using CholGen pipel
                 Check the download was correct by viewing the contents of your home directory:
                 <code-block lang="bash" >ls</code-block>
                 You should see a new directory in your home directory with the name <code>bacpage/</code>.
-                <p>This procedure can be used to download any other pipeline hosted on the GitHub website. If you are 
+                <p/>This procedure can be used to download any other pipeline hosted on the GitHub website. If you are 
                 interested in loading a different pipeline than the one used here, simply replace the URL in Step 2 with
-                the link found on the other pipeline’s GitHub page.</p>
+                the link found on the other pipeline’s GitHub page.
             </step>
             <step>
-                Confirm that the genome assembly and analysis folder (<code>bacpage/</code>) contains 5 sub-folders: 
+                Confirm that the pipeline folder (<code>bacpage/</code>) contains 5 sub-folders: 
                 <code>config/</code>, <code>example/</code>, <code>resources/</code>, <code>test/</code>, and 
                 <code>workflow/</code>.
             </step>
@@ -86,7 +87,7 @@ via the command line. To perform bacterial genomics assembly using CholGen pipel
             folder into your HOME directory.
         </step>
         <step>
-            Confirm that the genome assembly and analysis folder (<path>bacpage/</path>) contains 5 sub-folders: 
+            Confirm that the pipeline folder (<path>bacpage/</path>) contains 5 sub-folders: 
             <path>config/</path>, <path>example/</path>, <path>resources/</path>, <path>test/</path>, and 
             <path>workflow/</path>.
         </step>
@@ -129,11 +130,11 @@ web.
         bash Mambaforge-$(uname)-$(uname -m).sh
         </code-block>
         You should have noticed that your command line prompt has changed from:
-        <p><code>[seqlaptop@linuxbox seqlaptop]$ </code></p>
-        <p>to</p>
-        <p><code>(base) [seqlaptop@linuxbox seqlaptop]$</code></p>
-        This indicates that you are now in the <control>base</control> mamba environment, and that all of the software you 
-        loaded into that environment (called “base”) is accessible.
+        <p/><path><format color="CornflowerBlue">[seqlaptop@linuxbox seqlaptop]$ </format></path>
+        <p/>to
+        <p/><path><format color="CornflowerBlue">(base) [seqlaptop@linuxbox seqlaptop]$</format></path>
+        <p/>This indicates that you are now in the <control>base</control> mamba environment, and that all of the 
+        software you loaded into that environment (called “base”) is accessible.
         <tip> To get out of the <control>base</control> mamba environment (for example, if you’re unable to access previously
         installed software, run <code>mamba deactivate</code>). When you leave the mamba environment, you will no longer
         be able to access software that you installed when you were inside the mamba environment. To get back into the 
@@ -168,14 +169,61 @@ environment with a different name that will specifically have the assembly pipel
         following command:
         <code-block lang="bash" >mamba activate bacpage</code-block>
         Your prompt should have changed again to the following:
-        <p><code>(bacpage) [seqlaptop@linuxbox bacpage]$</code></p>
+        <p/><path><format color="CornflowerBluet">(bacpage) [seqlaptop@linuxbox bacpage]$</format></path>
         <p>This indicates that your terminal is now using the <control>bacpage</control> environment and can use all the
         required software. Use <code>mamba deactivate</code> to return to the default <control>base</control> environment.</p>
     </step>
     <step>
-        We will explain this command in more depth later, but run the following to test whether the installation was 
-        successful:
-        <code-block lang="bash" >snakemake --configfile test/test.yaml --all-temp --cores 8</code-block>
-        This command should take a few minutes to run and then complete without an issue.
+        Install the bacpage command using the following command:
+        <code-block lang="bash">pip install .</code-block>
+    </step>
+    <step>
+        Run the following two commands to test that the installation was successful:
+        <code-block lang="bash">
+        bacpage --help
+        bacpage version
+        </code-block>
+        You should see a help screen and the version number (something like <code>2023.11.15</code>).
+        You can rerun the installation if not successful.
     </step>
 </procedure>
+
+## STEP 3: Updating the pipeline (optional)
+Updating the pipeline involves downloading updates from Github, updating the compute environment with mamba, and 
+reinstalling the bacpage command.
+<procedure>
+    <step>
+        Navigate to the directory where you downloaded the bioinformatics pipeline above. Generally, this should be a 
+        directory titled <code>bacpage/</code> in your home directory.
+        <code-block lang="bash" >cd ~/bacpage</code-block>
+    </step>
+    <step>
+        Pull the latest version of the pipeline from Github:
+        <code-block lang="bash" >git pull</code-block>
+    </step>
+    <step>
+        Activate the compute environment for the pipeline:
+        <code-block lang="bash" >mamba activate bacpage</code-block>
+        Check to make sure the environment portion of your prompt changed from 
+        <path><format color="CornflowerBlue">(base)</format></path> to 
+        <path><format color="CornflowerBlue">(bacpage)</format></path>.
+    </step>
+    <step>
+        Update the environment:
+        <code-block lang="bash" >mamba env update -f environment.yaml</code-block>
+    </step>
+    <step>
+        Re-install the bacpage command:
+        <code-block lang="bash" >pip install .</code-block>
+    </step>
+    <step>
+        Run the following two commands to test that the installation was successful:
+        <code-block lang="bash">
+        bacpage --help
+        bacpage version
+        </code-block>
+    </step>
+</procedure>
+
+Click the link in the bottom right of the page to continue to an overview of the <b>bacpage</b> 
+pipeline

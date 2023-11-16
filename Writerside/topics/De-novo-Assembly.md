@@ -1,13 +1,13 @@
-# De novo Assembly
+# 4. De novo Assembly
 <card-summary >
-    Generate an assembly by de novo assembly of Illumina paired-end sequencing reads.
+    Generate a de novo assembly of Illumina paired-end sequencing reads.
 </card-summary>
 
 This document provides instructions for performing a *de novo* assembly of a bacteria genome.
 You can perform the steps on raw sequencing data you have generated and copied onto your computer (see instructions to
 set up your project directory below).
 
-<include from="Genome-Assembly-on-the-Command-Line.md" element-id="intro-table"/>
+<include from="Creating-a-Project-Directory.md" element-id="intro-table"/>
 
 This tutorial will take you through *de novo* assembly from raw sequencing data.
 The process comprises five main steps, including a sequence assessment step:

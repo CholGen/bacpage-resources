@@ -1,4 +1,4 @@
-# Reference-based Assembly
+# 3. Reference-based Assembly
 <card-summary>
     Generate a consensus sequences by aligning paired-end sequencing reads against a known reference genome.
 </card-summary>
@@ -7,7 +7,7 @@ This document provides instructions for performing a reference-based assembly of
 You can perform the steps on raw sequencing data you have generated and copied onto your computer (see instructions to 
 set up your project directory below). 
 
-<include from="Genome-Assembly-on-the-Command-Line.md" element-id="intro-table"/>
+<include from="Creating-a-Project-Directory.md" element-id="intro-table"/>
 
 This tutorial will take you through reference-based assembly from raw sequencing data. 
 The process comprises five main steps, including a sequence assessment step:

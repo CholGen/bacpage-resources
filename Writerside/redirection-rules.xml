@@ -27,4 +27,10 @@
         <description>Created after removal of "test" from Bioinformatics Resources</description>
         <accepts>test.html</accepts>
     </rule>
+    <rule id="22ab0850">
+        <description>Created after removal of "Reference-Based Bacterial Genome Assembly on the Command Line" from
+            Bioinformatics Resources
+        </description>
+        <accepts>Genome-Assembly-on-the-Command-Line.html</accepts>
+    </rule>
 </rules>

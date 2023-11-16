@@ -25,6 +25,10 @@ If you have not created a project directory yet, complete the <a href="Creating-
 Project Directory</a> instructions to generate it.
 <procedure type="steps">
     <step>
+        Activate the bacpage environment:
+        <code-block lang="bash">mamba activate bacpage</code-block>
+    </step>
+    <step>
         Navigate to your project directory.
         <code-block lang="bash" >cd ~/[project-directory-name]</code-block>
     </step>

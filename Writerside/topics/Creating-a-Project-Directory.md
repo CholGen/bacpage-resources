@@ -28,6 +28,10 @@ sequencing data and results are in the same place.
 
 <procedure type="steps" title="Creating a project directory from a template">
     <step>
+        Activate the bacpage environment:
+        <code-block lang="bash">mamba activate bacpage</code-block>
+    </step>
+    <step>
         Navigate to your HOME directory as described above:
         <code-block lang="bash" >cd ~/</code-block>
     </step>

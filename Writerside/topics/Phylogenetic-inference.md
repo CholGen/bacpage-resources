@@ -35,19 +35,23 @@ The process comprises three main steps:
 2. Masking wholly recombinant regions from the alignment
 3. Performing phylogenetic inference
 
-## STEP 0: Setting up the project directory
+## Setting up the project directory
 
 This analysis assumes you have completed the [Created a Project Directory](Creating-a-Project-Directory.md)} and
 [Reference-based Assembly](Reference-based-Assembly.md) instructions and have generated consensus sequences from raw 
 sequencing reads for each of your samples.
 <procedure type="steps">
     <step>
+        Activate the bacpage environment:
+        <code-block lang="bash">mamba activate bacpage</code-block>
+    </step>
+    <step>
         Navigate to your project directory:
         <code-block lang="bash" >cd ~/[project-directory-name]</code-block>
     </step>
     <step>
         Confirm that there are consensus sequences in your project directory. bacpage will search for FASTA files in
-        <code>results/consensus/</code>, as well as the base project directory, to include in the 
+        <code><b>[project-path]</b>/results/consensus/</code>, as well as the base project directory, to include in the 
         tree. Check the contents of these locations with the following commands:
         <code-block lang="bash" >
             ls
@@ -56,7 +60,7 @@ sequencing reads for each of your samples.
     </step>
 </procedure>
 
-## STEP 1: Specify background dataset (optional)
+## (Optional) Specify background dataset
 While it can sometimes be useful to make a phylogenetic tree using only the newly generated sequences, it is generally 
 more useful to combine newly generated sequences with a set of previously published sequences, called a "*background 
 dataset*." If this section is not completed, a phylogeny will be generated with only the consensus sequences in your 
@@ -89,7 +93,7 @@ project directory.
         <code-block lang="bash">cd ~/[project-directory-name]</code-block>
     </step>
     <step>
-        Add the absolute path of your background dataset to <code>config.yaml</code> in your project directory. Open 
+        Add the absolute path of your background dataset to <code><b>[project-path]</b>/config.yaml</code> in your project directory. Open 
         the configuration file in a text editor, change the value of <code><b>[background-dataset-path]</b></code> 
         on line 8 (see below), change the value of “<i>generate/phylogeny</i>” on line 15 to “True”, and save the file.
         <code-block lang="yaml" >
@@ -98,5 +102,42 @@ project directory.
     </step>
 </procedure>
 
-## STEP 2: Run the phylogeny reconstruction pipeline
+## Running the phylogeny reconstruction pipeline
 We will now generate a phylogeny including your newly generated genomes.
+<procedure type="steps">
+    <step>
+        Run the phylogenetic inference step of the pipeline by running the following command:
+        <code-block lang="bash" >bacpage phylogeny .</code-block>
+        Briefly, this step concatenates your newly generated genomes, and the background dataset if its present, into a 
+        multi-FASTA alignment. Aligning by concatenating is only possible because all of your newly generated sequences 
+        and the background dataset were both assembled by aligning against a common reference. After concatenation, 
+        constant sites are removed from the alignment which is then used to  generates a phylogeny using 
+        <code>iqtree</code>.
+        <p/>The output of this command is a phylogeny in Newick format, located at 
+        <code><b>[project-path]</b>/results/<b>[project-directory-name]</b>.ml.tree</code>
+        <note>
+            We recommend that only sequences that cover at least 90% of the genome be included in the phylogenetic 
+            inference. By default, the pipeline will only include sequences in the alignment if they reach this coverage
+            threshold. If you want a different stringency, change the "<i>tree_building/required_coverage</i>" value in 
+            <code><b>[project-path]</b>/config.yaml</code> to the desired value. 
+        </note>
+        <note>
+            By default, <code>iqtree</code> will use the GTR substitution model and calculate branch support by 
+            conducting 1000 bootstraps. These options can be changed by modifying the value of 
+            "<i>tree_building/iqtree_parameters</i>" in <code><b>[project-path]</b>/config.yaml</code>.
+        </note>
+        <step>
+            While the tree file is a text file that can be opened and read in a text editor, it is generally not 
+            interpretable in this format. We recommend a GUI tree viewer called FigTree to view tree files.
+        </step>
+        <step>
+            From the applications directory on your computer, open FigTree. Click <ui-path>File | Open</ui-path>, and 
+            select the newly generated phylogeny in the file browser that opens up. Alternatively, you can open the 
+            <code><b>[project-directory-name]</b>.ml.tree</code> file directly from the file browser.
+        </step>
+        <step>
+            The phylogeny should now appear in the main FigTree window. Search through the tree for your samples, 
+            determine which samples they are closest to. 
+        </step>
+    </step>
+</procedure>

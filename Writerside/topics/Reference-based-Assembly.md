@@ -1,4 +1,4 @@
-# 3. Reference-based Assembly
+# Reference-based Assembly
 <card-summary>
     Generate a consensus sequences by aligning paired-end sequencing reads against a known reference genome.
 </card-summary>
@@ -18,6 +18,8 @@ The process comprises five main steps, including a sequence assessment step:
 4. Mask known recombinant regions from the consensus sequence.
 5. Assess the quality of raw sequencing reads and alignment.
 
+The `bacpage assemble` command will perform all of these steps on all the samples it automatically detects in your 
+project directory's `input/` folder.
 
 ## Running the assembly pipeline
 Running the pipeline is easiest from your project directory. 
@@ -37,7 +39,7 @@ Project Directory</a> instructions to generate it.
         single command:
         <code-block>bacpage assemble .</code-block>
         <note>
-            This command might take a long time to complete depending on the number of samples being processed, and 
+            This command might take a few hours to complete depending on the number of samples being processed, and 
             the cores available on your computer
             </note>
     </step>
@@ -47,7 +49,7 @@ This command will generate a consensus sequence in FASTA format for each of your
 <code><b>[project-path]</b>/results/consensus_sequences/<b>[sample]</b>.masked.fasta</code>. 
 
 An HTML report containing alignment and quality metrics for your samples can be found at 
-<code><b>[project-path]</b>/results/reports/qc_report.html</code>. 
+<code><b>[project-path]</b>/results/reports/    qc_report.html</code>. 
 It can be opened and viewed in any web browser.
 
 <procedure title="Useful options">
@@ -89,4 +91,21 @@ bacpage assemble .
 If the error is still unresolved, feel free to create an issue on our 
 <a href="https://www.github.com/CholGen/bacpage/">GitHub repo</a>.
 
-
+## Automatic detection of samples
+The `bacpage assemble` command will try to automatically detect your samples using the files present in 
+the `input/` folder of the project directory. The command will save information about the samples it found in a file 
+called `sample_data.csv` in your project directory.
+This file has the following required columns:
+<deflist type="narrow">
+    <def title="sample">the name or identifier of each sample</def>
+    <def title="read1">the absolute pathname of the FASTQ file corresponding to the first set of reads for a sample (generally containing “R1” in the filename)</def>
+    <def title="read2">the absolute pathname of the FASTQ file corresponding to the second set of reads for a sample (generally containing “R2” in the filename)</def>
+</deflist>
+<tip>
+    By default, bacpage will parse sample names by extracting the first portion of the filename after splitting it with an underscore 
+    (<shortcut>_</shortcut>) character. 
+    If you would like to change this behavior, delete the `sample_data.csv` file, and change the deliminator and 
+    index to parse using the <code>--delim</code> and <code>--index</code> options. You can also specify the data 
+    for your samples by editing this file manually in a program like Excel. `bacpage assemble` will find the updated 
+    file next time you run the command.  
+</tip>

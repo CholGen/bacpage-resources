@@ -1,4 +1,4 @@
-# 6. Antimicrobial Resistance Profiling
+# Antimicrobial Resistance Profiling
 <card-summary>
     Screen your assemblies or consensus sequences for antimicrobial resistance or virulence genes. 
 </card-summary>
@@ -29,18 +29,18 @@ process involves searching the nucleotide and amino acid sequence of your assemb
 databases of antimicrobial resistance genes. Generally, profilers use rapid alignment programs like <code>BLAST</code>
 to efficiently search through your sequences.
 
-> We caution that the presence of a antimicrobial resistance gene does not necessarily indicate that the isolate 
-> carrying the gene is resistant to the corresponding antibiotic. This is because AMR genes must be expressed to confer 
-> resistance. Alternatively, some AMR genes, particular those on plasmids, have a greater correlation between genotype 
-> and phenotype. Whereas sometimes an isolate may gain resistance to an antibiotic by mutational processes which would 
-> be missed by the profiling described below.
+> We caution that the presence of an antimicrobial resistance gene does not necessarily indicate that the isolate 
+> carrying the gene is resistant to the corresponding antibiotic, as these genes must be expressed to confer 
+> resistance. Some resistance genes, particular those on plasmids, have a greater correlation between genotype 
+> and phenotype, but this varies. Additionally, sometimes an isolate may gain or lose resistance to an antibiotic by 
+> mutational processes which would be missed by the profiling described below.
 > 
 > Therefore, we caution readers against over-interpretation and recommend to confirmed resistance with laboratory assays.
 {style="warning"}
 
 ## Setting up the project directory
 
-This analysis assumes you have completed [Creating a Project Directory](Creating-a-Project-Directory.md)} and the 
+This analysis assumes you have completed [Creating a Project Directory](Creating-a-Project-Directory.md) and the 
 instructions for either [De novo Assembly](De-novo-Assembly.md) or [Reference-based Assembly](Reference-based-Assembly.md)  and have assembled 
 sequences from raw sequencing reads for each of your samples.
 

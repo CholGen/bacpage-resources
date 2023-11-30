@@ -1,4 +1,4 @@
-# 5. Phylogenetic Reconstruction
+# Phylogenetic Reconstruction
 <card-summary>
     Infer a phylogenetic tree from consensus sequences and an optional background dataset. 
 </card-summary>

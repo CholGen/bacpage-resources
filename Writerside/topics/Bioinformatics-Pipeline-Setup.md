@@ -1,9 +1,9 @@
-# Loading Bioinformatics Pipelines on the Command Line 
+# Installing the Pipeline 
 
-Before using the Linux command line to perform bioinformatics pipelines, you will need to configure your computer to be 
-able to run these commands. The information below links specifically to a bacterial metagenomics pipeline that can be 
-used for assembly of *Vibrio cholerae* genomes, but many of the same principles can be applied to other pipelines 
-hosted on GitHub.
+This tutorial will take you through the process of installing and updating the bioinformatics pipeline on your computer:
+1. [Downloading a desired bioinformatics pipeline from the internet.](#download-pipeline "Skip to `Download the Bioinformatics Pipeline`")
+2. [Building a compute environment (i.e., downloading software) needed to run the pipeline.](#build-environment "Skip to `Build the Compute Environment`" )
+3. (*Optional*) [Updating the pipeline.](#updating-pipeline "Skip to `Update the pipeline`")
 
 <procedure title="Important notes for following this tutorial" type="choices">
     <step>
@@ -12,7 +12,7 @@ hosted on GitHub.
         between commands to indicate when multiple commands are present.
     </step>
     <step>
-        <path><format color="CornflowerBlue">Monospace blue text with a white background</format></path> represents the 
+        <path><format color="CornflowerBlue">Monospace blue text</format></path> represents the 
         input and/or output of the terminal. Due to different terminal programs, the appearance of your terminal may 
         look different. 
     </step>
@@ -22,21 +22,25 @@ hosted on GitHub.
     </step>
 </procedure>
 
-This tutorial will take you through the two main steps of loading a bioinformatics pipeline on your computer:
-1. Downloading a desired bioinformatics pipeline from the internet.
-2. Building a compute environment (i.e., downloading software) needed to run the pipeline.
+Before using the Linux command line to perform bioinformatics pipelines, you will need to download and install the 
+pipeline and its requirements. 
+The information below is specific to the bacterial metagenomics pipeline `bacpage` that can be used for assembly of 
+*Vibrio cholerae* genomes, but many of the same principles can be applied to other pipelines hosted on GitHub.
 
-## STEP 0: Navigate to your HOME Directory
+## 1. Navigate to your HOME Directory {id="navigate-home-directory"}
 Unless otherwise stated, all commands should be run in your home directory. Generally this is where the command line is 
 located if you open a new command prompt (i.e., Terminal window).
 <procedure type="steps">
     <step>
-        If you are not in your home directory (or are unsure), move to your home directory with this command: 
+        If you are not in your home directory (or are unsure), move to your home directory with any of the following 
+        commands:
         <code-block lang="bash">cd ~/</code-block>
+        <tip>On some keyboards, tilde <shortcut>~</shortcut> can be difficult to type. If this is the case, you can use 
+        an alternative command such as <code lang="bash">cd $HOME</code> or <code lang="bash">cd</code></tip>
     </step>
 </procedure>
 
-## STEP 1: Download the Bioinformatics Pipeline
+## 2. Download the Bioinformatics Pipeline {id="download-pipeline"}
 Bioinformaticians often make their genome assembly and analysis pipelines publicly available on websites such as 
 [www.github.com](https://www.github.com) (commonly referred to as “GitHub”), which is specifically set up for hosting 
 code and other types of files. There are two ways to download files and pipelines from GitHub: via your web browser or 
@@ -95,7 +99,7 @@ via the command line. To perform bacterial genomics assembly using CholGen pipel
     </tab>
 </tabs>
 
-## STEP 2: Build the Compute Environment
+## 3. Build the Compute Environment {id="build-environment"}
 In contrast to simple command line programs such as <code>cd</code> and <code>ls</code>, bioinformatic analysis requires
 many specialized programs which need to be installed from a wide range of developers, with a wide range of requirements 
 and dependencies. To make it easy for others to repeat their exact processes, bioinformaticians can set up computing 
@@ -169,7 +173,7 @@ environment with a different name that will specifically have the assembly pipel
         following command:
         <code-block lang="bash" >mamba activate bacpage</code-block>
         Your prompt should have changed again to the following:
-        <p/><path><format color="CornflowerBluet">(bacpage) [seqlaptop@linuxbox bacpage]$</format></path>
+        <p/><path><format color="CornflowerBlue">(bacpage) [seqlaptop@linuxbox bacpage]$</format></path>
         <p>This indicates that your terminal is now using the <control>bacpage</control> environment and can use all the
         required software. Use <code>mamba deactivate</code> to return to the default <control>base</control> environment.</p>
     </step>
@@ -188,7 +192,7 @@ environment with a different name that will specifically have the assembly pipel
     </step>
 </procedure>
 
-## STEP 3: Updating the pipeline (optional)
+## 4. Update the pipeline (optional) {id="updating-pipeline"}
 Updating the pipeline involves downloading updates from Github, updating the compute environment with mamba, and 
 reinstalling the bacpage command.
 <procedure>
@@ -226,4 +230,4 @@ reinstalling the bacpage command.
 </procedure>
 
 Click the link in the bottom right of the page to continue to an overview of the <b>bacpage</b> 
-pipeline
+command.

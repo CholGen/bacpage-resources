@@ -6,8 +6,8 @@
                  name="Bioinformatics Resources"
                  start-page="Bioinformatics-Pipeline-Setup.md">
 
-    <toc-element topic="Bioinformatics-Pipeline-Setup.md"/>
     <toc-element topic="bacpage-Command.topic">
+        <toc-element topic="Bioinformatics-Pipeline-Setup.md"/>
         <toc-element topic="bacpage-command-overview.md"/>
         <toc-element topic="Creating-a-Project-Directory.md"/>
         <toc-element topic="Reference-based-Assembly.md"/>

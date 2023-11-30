@@ -1,4 +1,4 @@
-# 4. De novo Assembly
+# De novo Assembly
 <card-summary >
     Generate a de novo assembly of Illumina paired-end sequencing reads.
 </card-summary>

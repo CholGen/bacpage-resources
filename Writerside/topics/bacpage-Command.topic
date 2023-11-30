@@ -23,21 +23,22 @@
         </description>
 
         <spotlight>
-            <a href="bacpage-command-overview.md" type="mixed">1. Pipeline overview</a>
-            <a href="Creating-a-Project-Directory.md" type="folder">2. Create a project directory</a>
+            <a href="Bioinformatics-Pipeline-Setup.md" type="check-list">Install the pipeline</a>
+            <a href="bacpage-command-overview.md" type="mixed">Pipeline overview</a>
         </spotlight>
 
         <!--    Add several topics that are most important for this section.    -->
         <primary>
             <title>Genome Assembly</title>
-            <a href="Reference-based-Assembly.md" type="library">3. Reference-based assembly</a>
-            <a href="De-novo-Assembly.md" type="integration">4. De novo assembly</a>
+            <a href="Creating-a-Project-Directory.md" type="folder">Create a project directory</a>
+            <a href="Reference-based-Assembly.md" type="library">Reference-based assembly</a>
+            <a href="De-novo-Assembly.md" type="integration">De novo assembly</a>
         </primary>
 
         <secondary>
             <title>Analysis</title>
-            <a href="Phylogenetic-inference.md" type="network">4. Phylogenetic reconstruction</a>
-            <a href="Antimicrobial-Resistance-Profiling.md" type="cross-check">5. Antimicrobial resistance profiling</a>
+            <a href="Phylogenetic-inference.md" type="branch">Phylogenetic reconstruction</a>
+            <a href="Antimicrobial-Resistance-Profiling.md" type="cross-check">Antimicrobial resistance profiling</a>
         </secondary>
 
         <!--    Optionally add additional cards and links to topics that are not in this section but may be relevant.    -->

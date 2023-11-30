@@ -1,4 +1,4 @@
-# 1. Pipeline Overview
+# Pipeline Overview
 <card-summary >
     Explanation of the bacpage command and how you can use it to assemble and analyze bacterial 
     pathogen genomes.
@@ -23,7 +23,7 @@ example <code>bacpage phylogeny</code> to reconstruct a phylogeny.
 
 At the present, the following tools are available in bacpage:
 <deflist type="narrow">
-    <def title="example">
+    <def title="setup">
         Generates a project directory for an analysis
     </def>
     <def title="identify_files">

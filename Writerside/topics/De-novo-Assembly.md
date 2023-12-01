@@ -7,7 +7,7 @@ This document provides instructions for performing a *de novo* assembly of a bac
 You can perform the steps on raw sequencing data you have generated and copied onto your computer (see instructions to
 set up your project directory below).
 
-<include from="Creating-a-Project-Directory.md" element-id="intro-table"/>
+<include from="Reference-based-Assembly.md" element-id="assemble-table"/>
 
 This tutorial will take you through *de novo* assembly from raw sequencing data.
 The process comprises five main steps, including a sequence assessment step:
@@ -18,6 +18,8 @@ The process comprises five main steps, including a sequence assessment step:
 4. Identify genes of interest in assemblies.
 5. Assess the quality of raw sequencing reads and assemblies.
 
+The `bacpage assemble` command will perform all of these steps on all the samples it automatically detects in your
+project directory's `input/` folder.
 
 ## Running the assembly pipeline
 Running the pipeline is easiest from your project directory.
@@ -29,8 +31,8 @@ Project Directory</a> instructions to generate it.
         <code-block lang="bash">mamba activate bacpage</code-block>
     </step>
     <step>
-        Navigate to your project directory:
-        <code-block lang="bash" >cd ~/[project-directory-name]</code-block>
+        Navigate to your project directory (generally it is in your home directory).
+        <code-block lang="bash" >cd [project-path]</code-block>
     </step>
     <step>
         Generate an annotated assembly and calculate quality metrics for each sample in your project directory with a 
@@ -42,14 +44,20 @@ Project Directory</a> instructions to generate it.
         </note>
         <note>
             De novo assembly is much more computationally intensive than reference-based assembly. Depending on the 
-            number of samples you have and the speed of your computer, it's not uncommon for this command to take 
-            hours to complete.
+            number and size of samples you have, it's not uncommon for this command to take hours to complete.
         </note>
     </step>
 </procedure>
 
-This command will generate a annotated assembly in general feature format (gff) for each of your samples and place them in
-<code><b>[project-path]</b>/results/assembly/<b>[sample]</b>.annotated.gff</code>. 
+This command will generate an annotated assembly in generic feature format (GFF) for each of your samples and place 
+them in <code><b>[project-path]</b>/results/assembly/<b>[sample]</b>.annotated.gff</code>. 
+
+> The [GFF](http://gmod.org/wiki/GFF3) file is a human-readable file which contains a section for the sequences of 
+> the assembly in FASTA format, and a section containing the known genes that were found in the sequences of the 
+> assembly. 
+> Known genes are derived from the [UniProtKB](https://www.uniprot.org/uniprot/?query=reviewed:yes) database of 
+> described Bacteria genes. 
+> The GFF file can be used by most programs that take a FASTA file, or you can extract the FASTA section alone. 
 
 An HTML report containing assembly and quality metrics for your samples can be found at
 <code><b>[project-path]</b>/results/reports/qc_report.html</code>. 

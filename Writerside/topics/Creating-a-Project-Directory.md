@@ -1,13 +1,13 @@
 # Creating a Project Directory
 <card-summary >
-    Prepare for an analysis by creating a project directory to hold all the files for your analysis
+    Prepare for an analysis by creating a project directory to hold all the files for your analysis.
 </card-summary>
 
-The first step for setting up a **bacpage** analysis is creating a directory specifically for the sequencing data you 
+The first step for setting up a **bacpage** analysis is creating a directory specifically for the sequencing data you
 are analyzing.
 This directory is where you will run analyzes and save outputs and is called your **project directory**.
 Importantly, while we recommend creating a project directory for each new sequencing run, you can run multiple analyses
- (for example, reference-based and *de novo* assembly) in that same directory.
+(for example, reference-based and *de novo* assembly) in that same directory.
 
 <procedure title="Important notes for following this tutorial" id="intro-table">
     <step>
@@ -26,7 +26,7 @@ Importantly, while we recommend creating a project directory for each new sequen
 </procedure>
 
 ## 1. Creating a project directory from a template
-We recommend you set up your project directory in your HOME directory to ensure all sequencing data and analysis 
+We recommend you set up your project directory in your HOME directory to ensure all sequencing data and analysis
 results are in the same place.
 
 <procedure type="steps">
@@ -47,9 +47,16 @@ results are in the same place.
         <note>Replace <code><b>[project-directory-name]</b></code> with the informative name you created above.</note>
     </step>
     <step>
-        Navigate within your project directory and view its contents:
+        Navigate within your project directory and review it's absolute path with <code>pwd</code>.
         <code-block lang="bash">
             cd [project-directory-name]
+            pwd
+        </code-block>
+        We will refer to the absolute path of you project directory as <code><b>[project-path]</b></code>
+    </step>
+    <step>
+        View the contents of your project directory:
+        <code-block lang="bash">
             ls
         </code-block>
     </step>
@@ -62,10 +69,10 @@ Your project should contain two files and a directory:
 └── input/
 ```
 
-* `config.yaml` is a configuration file which contains the parameters and options for the analysis. 
-Parameters may be altered to suit your analysis, however the default options should be appropriate for most analysis.
-* The `input/` directory will hold the input data you would like to use for the pipeline 
-(generally, paired-end FASTQ files).
+* `config.yaml` is a configuration file which contains the parameters and options for the analysis.
+  Parameters may be altered to suit your analysis, however the default options should be appropriate for most analysis.
+* The `input/` directory will hold the input data you would like to use for the pipeline
+  (generally, paired-end FASTQ files).
 
 ## 2. Adding input data
 To complete the setup of the project directory, you will need to add input data.

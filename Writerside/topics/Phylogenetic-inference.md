@@ -3,9 +3,8 @@
     Infer a phylogenetic tree from consensus sequences and an optional background dataset. 
 </card-summary>
 
-This document provides instructions for an initial analysis, including building a phylogenetic tree, of bacterial 
-pathogen sequences. 
-This analysis requires you to first generate and assemble consensus genomes from raw sequencing data.
+This document provides instructions construction a phylogenetic tree of bacterial pathogen sequences. 
+These sequences must be consensus sequences resulting from reference-based assembly.
 
 <procedure type="choices" title="Important notes for following this tutorial" id="intro-table">
     <step>
@@ -18,7 +17,7 @@ This analysis requires you to first generate and assemble consensus genomes from
     <step>
         This tutorial assumes you have set up the bioinformatics pipeline on your computer, and have assembled
         consensus sequences in FASTA format.
-        If this is <b>not</b> the case, complete the <a href="Bioinformatics-Pipeline-Setup.md">Bioinformatics Pipeline 
+        If this is <i>not</i> the case, complete the <a href="Bioinformatics-Pipeline-Setup.md">Bioinformatics Pipeline 
         Setup</a> and <a href="Reference-based-Assembly.md">Reference-based Assembly</a> instructions before proceeding.
     </step>
     <step>
@@ -29,13 +28,14 @@ This analysis requires you to first generate and assemble consensus genomes from
     </step>
 </procedure>
 
-This tutorial will take you through the process of reconstructing a phylogeny from pathogen genome sequences. 
-The process comprises three main steps:
+This tutorial will take you through the process of reconstructing a phylogeny from pathogen genome sequences using 
+the `bacpage phylogeny` command. 
+Briefly, the command performs the following three main steps:
 1. Aligning consensus sequences with each other and, optionally, a background dataset.
-2. Masking wholly recombinant regions from the alignment
-3. Performing phylogenetic inference
+2. Masking recombinant and user-specified regions from the alignment.
+3. Performing phylogenetic inference.
 
-## Setting up the project directory
+## 1. Setting up the project directory
 
 This analysis assumes you have completed the [Created a Project Directory](Creating-a-Project-Directory.md)} and
 [Reference-based Assembly](Reference-based-Assembly.md) instructions and have generated consensus sequences from raw 
@@ -47,7 +47,7 @@ sequencing reads for each of your samples.
     </step>
     <step>
         Navigate to your project directory:
-        <code-block lang="bash" >cd ~/[project-directory-name]</code-block>
+        <code-block lang="bash" >cd [project-path]</code-block>
     </step>
     <step>
         Confirm that there are consensus sequences in your project directory. bacpage will search for FASTA files in
@@ -60,11 +60,13 @@ sequencing reads for each of your samples.
     </step>
 </procedure>
 
-## (Optional) Specify background dataset
+## 2. Specify background dataset
 While it can sometimes be useful to make a phylogenetic tree using only the newly generated sequences, it is generally 
-more useful to combine newly generated sequences with a set of previously published sequences, called a "*background 
-dataset*." If this section is not completed, a phylogeny will be generated with only the consensus sequences in your 
-project directory.
+more informative to combine newly generated sequences with a set of previously published sequences, called a 
+"*background dataset*." 
+Sequences in the background dataset will allow you to compare your own sequences to established lineages and 
+more accurately identify transmission patterns.
+While not recommended, if you don't want to include background sequences, you can skip this step.
 
 <procedure type="steps">
     <step>
@@ -90,19 +92,19 @@ project directory.
     </step>
     <step>
         Navigate back to the project directory:
-        <code-block lang="bash">cd ~/[project-directory-name]</code-block>
+        <code-block lang="bash">cd [project-path]</code-block>
     </step>
     <step>
         Add the absolute path of your background dataset to <code><b>[project-path]</b>/config.yaml</code> in your project directory. Open 
         the configuration file in a text editor, change the value of <code><b>[background-dataset-path]</b></code> 
-        on line 8 (see below), change the value of “<i>generate/phylogeny</i>” on line 15 to “True”, and save the file.
+        on line 8 (see below), and save the file.
         <code-block lang="yaml" >
             background_dataset: "[background-dataset-path]"
         </code-block>
     </step>
 </procedure>
 
-## Running the phylogeny reconstruction pipeline
+## 3. Running the phylogeny reconstruction pipeline
 We will now generate a phylogeny including your newly generated genomes.
 <procedure type="steps">
     <step>
@@ -129,6 +131,11 @@ We will now generate a phylogeny including your newly generated genomes.
         <step>
             While the tree file is a text file that can be opened and read in a text editor, it is generally not 
             interpretable in this format. We recommend a GUI tree viewer called FigTree to view tree files.
+            <tip>
+                Download FigTree from its <a href="https://github.com/rambaut/figtree/releases">Github 
+                repository</a>. You must have Java installed, which can be downloaded 
+                <a href="https://www.java.com/en/download/" >here</a>.
+            </tip>
         </step>
         <step>
             From the applications directory on your computer, open FigTree. Click <ui-path>File | Open</ui-path>, and 
@@ -136,8 +143,8 @@ We will now generate a phylogeny including your newly generated genomes.
             <code><b>[project-directory-name]</b>.ml.tree</code> file directly from the file browser.
         </step>
         <step>
-            The phylogeny should now appear in the main FigTree window. Search through the tree for your samples, 
-            determine which samples they are closest to. 
+            The phylogeny should now appear in the main FigTree window. Search through the tree for your samples and 
+            explore their relationship to other sequences in your background dataset
         </step>
     </step>
 </procedure>

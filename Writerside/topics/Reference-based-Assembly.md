@@ -7,7 +7,22 @@ This document provides instructions for performing a reference-based assembly of
 You can perform the steps on raw sequencing data you have generated and copied onto your computer (see instructions to 
 set up your project directory below). 
 
-<include from="Creating-a-Project-Directory.md" element-id="intro-table"/>
+<procedure title="Important notes for following this tutorial" id="assemble-table">
+    <step>
+        <code>Text with a gray background in monospace font</code> represents commands to type in.
+    </step>
+    <step>
+        <b>Bold text surrounded by []</b> is something you will have to replace with your own folder, path, or sample 
+        name.
+    </step>
+    <step>
+        This tutorial assumes you have set up the bioinformatics pipeline on your computer and set up a project 
+        directory with data from a particular sequencing run before starting the tutorial below. If this is not the 
+        case, set up the pipeline by following <a href="Bioinformatics-Pipeline-Setup.md">Bioinformatics Pipeline 
+        Setup</a>, and create a project directory by following <a href="Creating-a-Project-Directory.md">Creating a 
+        Project Directory</a>.
+    </step>
+</procedure>
 
 This tutorial will take you through reference-based assembly from raw sequencing data. 
 The process comprises five main steps, including a sequence assessment step:
@@ -22,34 +37,36 @@ The `bacpage assemble` command will perform all of these steps on all the sample
 project directory's `input/` folder.
 
 ## Running the assembly pipeline
+
 Running the pipeline is easiest from your project directory. 
 If you have not created a project directory yet, complete the <a href="Creating-a-Project-Directory.md"> Creating a 
 Project Directory</a> instructions to generate it.
+
 <procedure type="steps">
     <step>
         Activate the bacpage environment:
         <code-block lang="bash">mamba activate bacpage</code-block>
     </step>
     <step>
-        Navigate to your project directory.
-        <code-block lang="bash" >cd ~/[project-directory-name]</code-block>
+        Navigate to your project directory (generally it is in your home directory).
+        <code-block lang="bash" >cd [project-path]</code-block>
     </step>
     <step>
         Generate consensus sequences and calculate quality metrics for the samples in your project directory with a 
         single command:
         <code-block>bacpage assemble .</code-block>
         <note>
-            This command might take a few hours to complete depending on the number of samples being processed, and 
+            This command might take a 1-2 hours to complete depending on the number of samples being processed, and 
             the cores available on your computer
-            </note>
+        </note>
     </step>
 </procedure>
 
 This command will generate a consensus sequence in FASTA format for each of your samples and place them in 
-<code><b>[project-path]</b>/results/consensus_sequences/<b>[sample]</b>.masked.fasta</code>. 
+<code><b>[project-path]</b>/results/consensus_sequences/<b>[sample]</b>.consensus.fasta</code>. 
 
 An HTML report containing alignment and quality metrics for your samples can be found at 
-<code><b>[project-path]</b>/results/reports/    qc_report.html</code>. 
+<code><b>[project-path]</b>/results/reports/qc_report.html</code>. 
 It can be opened and viewed in any web browser.
 
 <procedure title="Useful options">
@@ -66,7 +83,7 @@ It can be opened and viewed in any web browser.
     <step>
         By default, the pipeline will align reads against a <i>Vibrio cholerae</i> reference included with the program. 
         If you are studying another pathogen, you can change the "<i>reference</i>" parameter in 
-        <code>config.yaml</code> to another reference sequence (must be in FASTA format).
+        <code>config.yaml</code> to the absolute path of another reference sequence (must be in FASTA format).
     </step>
 </procedure>
 
@@ -75,11 +92,11 @@ If the command completed successfully, you should see something like this on scr
 
 ```Bash
 Successfully performed reference-based assembly of your samples.
-Consensus sequences are available at results/consensus/.
-Quality metrics of your input data and consensus sequences are available at results/reports/qc_report.html
+Consensus sequences are available at `results/consensus/`.
+Quality metrics of your input data and consensus sequences are available at `results/reports/qc_report.html`
 
 Generate a phylogenetic tree incorporating these samples using `bacpage phylogeny`.
-Or, determine the presense of antimicrobial resistance genes using `bacpage profile`.
+Or, determine the presence of antimicrobial resistance genes using `bacpage profile`.
 ```
 
 Otherwise, a traceback error will be printed to the screen if the program was unsuccessful. 

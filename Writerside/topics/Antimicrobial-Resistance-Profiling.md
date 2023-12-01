@@ -18,7 +18,7 @@ This analysis requires you to first generate and assemble consensus genomes from
     <step>
         This tutorial assumes you have set up the bioinformatics pipeline on your computer, and have performed assembly 
         on your samples. We recommend <i>de novo</i> assembly for AMR profiling, but the pipeline will accept consensus 
-        sequences if assemblies are not available. If neither type of assembly is available, complete the 
+        sequences if assemblies are not available. If neither type of assembly has been performed, complete the 
         <a href="De-novo-Assembly.md">De Novo Assembly</a> or 
         <a href="Reference-based-Assembly.md">Reference-based Assembly</a> instructions before proceeding.
     </step>
@@ -30,12 +30,15 @@ databases of antimicrobial resistance genes. Generally, profilers use rapid alig
 to efficiently search through your sequences.
 
 > We caution that the presence of an antimicrobial resistance gene does not necessarily indicate that the isolate 
-> carrying the gene is resistant to the corresponding antibiotic, as these genes must be expressed to confer 
-> resistance. Some resistance genes, particular those on plasmids, have a greater correlation between genotype 
-> and phenotype, but this varies. Additionally, sometimes an isolate may gain or lose resistance to an antibiotic by 
-> mutational processes which would be missed by the profiling described below.
+> carrying the gene is resistant to the corresponding antibiotic. 
+> This is because AMR genes must be expressed to confer resistance.
+> Alternatively, some AMR genes, particularly those on plasmids, have a greater correlation between genotype and 
+> phenotype. 
+> Whereas sometimes an isolate may gain resistance to an antibiotic by mutational processes which would be missed by 
+> the profiling described below.
 > 
-> Therefore, we caution readers against over-interpretation and recommend to confirmed resistance with laboratory assays.
+> Therefore, we caution readers against over-interpretation and recommend confirming resistance with an appropriate  
+> laboratory assay.
 {style="warning"}
 
 ## Setting up the project directory
@@ -51,7 +54,7 @@ sequences from raw sequencing reads for each of your samples.
     </step>
     <step>
         Navigate to your project directory:
-        <code-block lang="bash" >cd ~/[project-directory-name]</code-block>
+        <code-block lang="bash">cd [project-path]</code-block>
     </step>
     <step>
         Confirm that there are assembled sequences in your project directory. bacpage will search for annotated 
@@ -98,4 +101,4 @@ columns of the results are as follows:
 
 A summary of the results is also written to <code><b>[project-path]</b>/results/reports/antibiotic_resistance.tsv</code>.
 This summary reports the presence or absence antimicrobial resistance genes detected across all of your samples. Absent 
-genes are denoted with a <shortcut>.</shortcut>, while presence is indicated by its '%COVERAGE'.
+genes are denoted with a period (<shortcut>.</shortcut>), while presence is indicated by its **%COVERAGE**.

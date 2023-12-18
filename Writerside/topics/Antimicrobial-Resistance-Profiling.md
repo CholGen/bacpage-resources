@@ -3,9 +3,8 @@
     Screen your assemblies or consensus sequences for antimicrobial resistance or virulence genes. 
 </card-summary>
 
-This document provides instructions for an initial analysis, including building a phylogenetic tree, of bacterial
-pathogen sequences.
-This analysis requires you to first generate and assemble consensus genomes from raw sequencing data.
+This document provides instructions for screening your assemblies or consensus sequences for antimicrobial resistance 
+or virulence genes.
 
 <procedure type="choices" title="Important notes for following this tutorial" id="intro-table">
     <step>

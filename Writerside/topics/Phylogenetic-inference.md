@@ -61,6 +61,7 @@ sequencing reads for each of your samples.
 </procedure>
 
 ## 2. Specify background dataset
+
 While it can sometimes be useful to make a phylogenetic tree using only the newly generated sequences, it is generally 
 more informative to combine newly generated sequences with a set of previously published sequences, called a 
 "*background dataset*." 
@@ -104,8 +105,33 @@ While not recommended, if you don't want to include background sequences, you ca
     </step>
 </procedure>
 
+### A note about masking
+Phylogenetic inference aims to reconstruct the evolutionary relationships between a set of sequences that arise from 
+single point mutations (also called genetic drift). While this amounts to the vast amount of genetic variation for 
+most bacteria pathogens, other sources of variation can be present that must be corrected prior to phylogenetic 
+inference. Primarily these are sequencing errors, reassortment, and recombination. Bacpage conducts two processes to 
+remove these genetic artifacts from the alignment.    
+
+The first of these involves masking known problematic sites from the alignment. These sites can be known locations 
+of sequencing errors (generally sites following homopolymer regions) or previously described recombinant regions. 
+Bacpage contains a set of known problematic sites for *Vibrio cholera*, but, alternatively, you can change the value 
+of "*problematic_sites*" in <code><b>[project-path]</b>/config.yaml</code> to the absolute path of a GFF file of 
+problematic sites for another species of interest. 
+
+The second process involves automatically detecting recombinant regions from the alignment. We highly recommend 
+performing this step as your newly generated consensus sequences might contain previously unobserved recombinant 
+sites. Bacpage uses a tool called [gubbins](https://github.com/nickjcroucher/gubbins) to detect and mask recombinant sites in your alignment. This is a 
+computationally intensive step which might not run on a typical laptop computer. Therefore, we are in the process of 
+providing this pipeline on the cloud computing platform [Terra](https://terra.bio/). Check back here in the future 
+for details.
+
+> We do not provide a correction for reassortment, because reference-based assembly will produce consensus sequences 
+> with the same genomic structure as in the reference.
+
+
 ## 3. Running the phylogeny reconstruction pipeline
-We will now generate a phylogeny including your newly generated genomes.
+
+We will now generate a phylogeny including your newly generated genomes. 
 <procedure type="steps">
     <step>
         Run the phylogenetic inference step of the pipeline by running the following command:
@@ -113,10 +139,8 @@ We will now generate a phylogeny including your newly generated genomes.
         Briefly, this step concatenates your newly generated genomes, and the background dataset if its present, into a 
         multi-FASTA alignment. Aligning by concatenating is only possible because all of your newly generated sequences 
         and the background dataset were both assembled by aligning against a common reference. After concatenation, 
-        constant sites are removed from the alignment which is then used to  generates a phylogeny using 
+        constant sites are removed from the alignment which is then used to generates a phylogeny using 
         <code>iqtree</code>.
-        <p/>The output of this command is a phylogeny in Newick format, located at 
-        <code><b>[project-path]</b>/results/<b>[project-directory-name]</b>.ml.tree</code>
         <note>
             We recommend that only sequences that cover at least 90% of the genome be included in the phylogenetic 
             inference. By default, the pipeline will only include sequences in the alignment if they reach this coverage
@@ -128,23 +152,46 @@ We will now generate a phylogeny including your newly generated genomes.
             conducting 1000 bootstraps. These options can be changed by modifying the value of 
             "<i>tree_building/iqtree_parameters</i>" in <code><b>[project-path]</b>/config.yaml</code>.
         </note>
-        <step>
-            While the tree file is a text file that can be opened and read in a text editor, it is generally not 
-            interpretable in this format. We recommend a GUI tree viewer called FigTree to view tree files.
-            <tip>
-                Download FigTree from its <a href="https://github.com/rambaut/figtree/releases">Github 
-                repository</a>. You must have Java installed, which can be downloaded 
-                <a href="https://www.java.com/en/download/" >here</a>.
-            </tip>
-        </step>
-        <step>
-            From the applications directory on your computer, open FigTree. Click <ui-path>File | Open</ui-path>, and 
-            select the newly generated phylogeny in the file browser that opens up. Alternatively, you can open the 
-            <code><b>[project-directory-name]</b>.ml.tree</code> file directly from the file browser.
-        </step>
-        <step>
-            The phylogeny should now appear in the main FigTree window. Search through the tree for your samples and 
-            explore their relationship to other sequences in your background dataset
-        </step>
+    </step>
+</procedure>
+
+The output of this command is a phylogeny in Newick format, located at <code><b>[project-path]</b>/results/<b>
+[project-directory-name]</b>.ml.tree</code>. 
+The pipeline will also output a sparse alignment (indicating constant sites are removed) of the input and background 
+sequences, located at <code><b>[project-path]</b>/results/sparse_alignment.fasta</code>, and the GFF file containing 
+the recombinant regions detected in your alignment, located at 
+<code><b>[project-path]</b>/results/phylogeny/recombinant_regions.gff</code>. 
+
+<procedure title="Useful options" type="choices">
+    <step>
+        If you’re worried about rerunning the pipeline because of the computationally intensive nature of the 
+        recombination detection step, you can also provide the GFF file output by the pipeline in a previous run of the 
+        pipeline to skip it. Simply specify the file using the <code>--detect</code> option  
+    </step>
+    <step>
+        If you're confident your alignment is not affected by recombination, for instance, if you are analyzing 
+        <i>Mycobacterium tuberculosis</i>, you can skip the recombination detection with the 
+        <code>--no-detect</code> option.
+    </step>
+</procedure>
+
+## 4. Viewing the phylogeny
+While the tree file is a text file that can be opened and read in a text editor, it is generally not
+interpretable in this format. 
+We recommend a GUI tree viewer called FigTree to view tree files.
+<procedure type="steps">
+    <step>
+        Download FigTree from its <a href="https://github.com/rambaut/figtree/releases">Github 
+        repository</a>. You must have Java installed, which can be downloaded 
+        <a href="https://www.java.com/en/download/" >here</a>.
+    </step>
+    <step>
+        From the applications directory on your computer, open FigTree. Click <ui-path>File | Open</ui-path>, and 
+        select the newly generated phylogeny in the file browser that opens up. Alternatively, you can open the 
+        <code><b>[project-directory-name]</b>.ml.tree</code> file directly from the file browser.
+    </step>
+    <step>
+        The phylogeny should now appear in the main FigTree window. Search through the tree for your samples and 
+        explore their relationship to other sequences in your background dataset
     </step>
 </procedure>

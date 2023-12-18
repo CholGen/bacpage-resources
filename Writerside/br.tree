@@ -4,7 +4,7 @@
 
 <instance-profile id="br"
                  name="Bioinformatics Resources"
-                 start-page="Bioinformatics-Pipeline-Setup.md">
+                 start-page="bacpage-Command.topic">
 
     <toc-element topic="bacpage-Command.topic">
         <toc-element topic="Bioinformatics-Pipeline-Setup.md"/>

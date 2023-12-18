@@ -6,31 +6,4 @@
         <accepts>page.html</accepts>
     </rule>
     -->
-    <rule id="32ffc153">
-        <description>Created after removal of "About Bioinformatics Resources" from Bioinformatics Resources
-        </description>
-        <accepts>starter-topic.html</accepts>
-    </rule>
-    <rule id="6f1d2a9b">
-        <description>Created after removal of "bacpage Command" from Bioinformatics Resources</description>
-        <accepts>bacpage-Command.html</accepts>
-    </rule>
-    <rule id="5f18663e">
-        <description>Created after removal of "test_starting_page" from Bioinformatics Resources</description>
-        <accepts>test-starting-page.html</accepts>
-    </rule>
-    <rule id="48d09a50">
-        <description>Created after removal of "Empty XML Topic" from Bioinformatics Resources</description>
-        <accepts>Empty-XML-Topic.html</accepts>
-    </rule>
-    <rule id="43044188">
-        <description>Created after removal of "test" from Bioinformatics Resources</description>
-        <accepts>test.html</accepts>
-    </rule>
-    <rule id="22ab0850">
-        <description>Created after removal of "Reference-Based Bacterial Genome Assembly on the Command Line" from
-            Bioinformatics Resources
-        </description>
-        <accepts>Genome-Assembly-on-the-Command-Line.html</accepts>
-    </rule>
 </rules>

@@ -72,9 +72,17 @@ via the command line. To perform bacterial genomics assembly using CholGen pipel
                 the link found on the other pipeline’s GitHub page.
             </step>
             <step>
-                Confirm that the pipeline folder (<code>bacpage/</code>) contains 5 sub-folders: 
-                <code>config/</code>, <code>example/</code>, <code>resources/</code>, <code>test/</code>, and 
-                <code>workflow/</code>.
+                Move to the <code>bacpage</code> directory and switch to the development branch of the pipeline using 
+                the following command:
+                <code-block lang="bash">
+                    cd bacpage/
+                    git checkout -b split_into_command
+                </code-block>
+                <note>This step is only temporary before version 2 of <code>bacpage</code> is officially released.</note>
+            </step>
+            <step>
+                Confirm that the pipeline folder (<code>bacpage/</code>) contains 4 sub-folders: 
+                <code>bacpage/</code>, <code>example/</code>, <code>config/</code>, and <code>test/</code>
             </step>
         </procedure>
     </tab>
@@ -204,6 +212,11 @@ reinstalling the bacpage command.
     <step>
         Pull the latest version of the pipeline from Github:
         <code-block lang="bash" >git pull</code-block>
+    </step>
+    <step>
+        Switch to the development branch using the following command:
+        <code-block lang="bash">git checkout -b split_into_command</code-block>
+        <note>This step is only temporary before version 2 of <code>bacpage</code> is officially released.</note>
     </step>
     <step>
         Activate the compute environment for the pipeline:

@@ -71,10 +71,6 @@ via the command line. To perform bacterial genomics assembly using CholGen pipel
                 interested in loading a different pipeline than the one used here, simply replace the URL in Step 2 with
                 the link found on the other pipeline’s GitHub page.
             </step>
-            <step>
-                Confirm that the pipeline folder (<code>bacpage/</code>) contains 4 sub-folders: 
-                <code>bacpage/</code>, <code>example/</code>, <code>config/</code>, and <code>test/</code>
-            </step>
         </procedure>
     </tab>
     <tab title="Web browser">
@@ -88,11 +84,6 @@ via the command line. To perform bacterial genomics assembly using CholGen pipel
             Unzip this file on your computer and move the resulting folder (named <path>bacpage/</path>) into the HOME 
             directory on your computer. You can do this by dragging the <path>bacpage/</path> folder from your Downloads
             folder into your HOME directory.
-        </step>
-        <step>
-            Confirm that the pipeline folder (<path>bacpage/</path>) contains 5 sub-folders: 
-            <path>config/</path>, <path>example/</path>, <path>resources/</path>, <path>test/</path>, and 
-            <path>workflow/</path>.
         </step>
     </procedure>
     </tab>

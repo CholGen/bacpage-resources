@@ -2,40 +2,38 @@
 
 test this stuff.
 <code-block lang="plantuml">
+<![CDATA[
     @startuml
     left to right direction
     class Run {
-    library_ID : CMR_CEN005NA35
-    sample_name : CMR_CEN005NA35
+    <b>library_ID</b>: CMR_CEN005NA35
+    <b>sample_name</b>: CMR_CEN005NA35
     ---
-    filename1 : CMR_CEN005NA35.R1.fastq.gz
-    filename2 : CMR_CEN005NA35.R1.fastq.gz
+    <b>filename1</b>: CMR_CEN005NA35.R1.fastq.gz
+    <b>filename2</b>: CMR_CEN005NA35.R1.fastq.gz
     ---
-    platform : ILLUMINA
-    intrument : MiSeq
+    <b>platform</b>: ILLUMINA
+    <b>intrument</b>: MiSeq
     ...
     }
     
     class BioSample {
-    sample_name : CMR_CEN005NA3
+    <b>sample_name</b>: CMR_CEN005NA3
     ---
-    organism: Vibrio cholerae O1
-    host: Human
-    sample_type: stool swab
-    collection_date: 2023-04-12
-    collection_loc: Cameroon: Centre
+    <b>organism</b>: Vibrio cholerae O1
+    <b>host</b>: Human
+    <b>sample_type</b>: stool swab
+    <b>collection_date</b>: 2023-04-12
+    <b>collection_loc</b>: Cameroon: Centre
     ...
     }
     
     class BioProject {
-    sample_name : CMR_CEN005NA3
+    <b>study_name</b>: CholGEN Regional Analysis
+    <b>study_description</b>: CholGEN is sequencing\nVibrio cholerae in Africa
     ---
-    organism: Vibrio cholerae O1
-    host: Human
-    sample_type: stool swab
-    collection_date: 2023-04-12
-    collection_loc: Cameroon: Centre
-    ...
+    <b>BioSamples</b>: [CMR_CEN005NA3,...]
+    <b>Runs</b>: [CMR_CEN005NA3,...]
     }
     
     Run-->BioSample
@@ -49,4 +47,5 @@ test this stuff.
     BioSample-->BioProject
     
     @enduml
+]]>
 </code-block>

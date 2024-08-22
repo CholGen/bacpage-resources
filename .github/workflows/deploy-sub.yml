@@ -35,7 +35,7 @@ jobs:
           instance: ${{ env.INSTANCE }}
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
-
+      - run: ls -a
       - name: Save build json
         uses: actions/upload-artifact@v4
         with:

@@ -36,13 +36,17 @@ jobs:
           artifact: ${{ env.ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
 
-      - name: Save artifact with build results
+      - name: Save build json
         uses: actions/upload-artifact@v4
         with:
           name: docs
-          path: |
-            artifacts/${{ env.ARTIFACT }}
-            artifacts/report.json
+          path: artifacts/report.json
+          retention-days: 7
+      - name: Save build zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: zip
+          path: artifacts/${{ env.ARTIFACT }}
           retention-days: 7
   test:
     needs: build
@@ -69,7 +73,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          name: docs
+          name: zip
       - run: ls
       - name: Unzip artifact
         run: unzip -O UTF-8 -qq '${{ env.ARTIFACT }}' -d dir

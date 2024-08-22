@@ -67,7 +67,8 @@ via the command line. To perform bacterial genomics assembly using CholGen pipel
                 Check the download was correct by viewing the contents of your home directory:
                 <code-block lang="bash" >ls</code-block>
                 You should see a new directory in your home directory with the name <code>bacpage/</code>.
-                <p/>This procedure can be used to download any other pipeline hosted on the GitHub website. If you are 
+                <p/>
+                This procedure can be used to download any other pipeline hosted on the GitHub website. If you are 
                 interested in loading a different pipeline than the one used here, simply replace the URL in Step 2 with
                 the link found on the other pipeline’s GitHub page.
             </step>
@@ -97,8 +98,8 @@ and dependencies. To make it easy for others to repeat their exact processes, bi
 share the instructions for replicating their compute “environment” on a site such as GitHub, so other people can quickly
 set up their computers in the exact same way.
 
-The files you downloaded from GitHub above contain instructions on how to build the environment needed to run all of the
-scripts you also downloaded. These instructions will automatically install all of the software you need to run the 
+The files you downloaded from GitHub above contain instructions on how to build the environment needed to run all the
+scripts you also downloaded. These instructions will automatically install all the software you need to run the 
 bioinformatics scripts. In order to follow these instructions (and load someone else’s compute environment on your 
 computer), you’ll need to first install a piece of software that can read these instructions. 
 
@@ -125,9 +126,9 @@ web.
         </code-block>
         You should have noticed that your command line prompt has changed from:
         <p/><path><format color="CornflowerBlue">[seqlaptop@linuxbox seqlaptop]$ </format></path>
-        <p/>to
+        <p/> to
         <p/><path><format color="CornflowerBlue">(base) [seqlaptop@linuxbox seqlaptop]$</format></path>
-        <p/>This indicates that you are now in the <control>base</control> mamba environment, and that all of the 
+        <p/> This indicates that you are now in the <control>base</control> mamba environment, and that all of the 
         software you loaded into that environment (called “base”) is accessible.
         <tip> To get out of the <control>base</control> mamba environment (for example, if you’re unable to access previously
         installed software, run <code>mamba deactivate</code>). When you leave the mamba environment, you will no longer
@@ -183,7 +184,7 @@ environment with a different name that will specifically have the assembly pipel
 </procedure>
 
 ## 4. Update the pipeline (optional) {id="updating-pipeline"}
-Updating the pipeline involves downloading updates from Github, updating the compute environment with mamba, and 
+Updating the pipeline involves downloading updates from GitHub, updating the compute environment with mamba, and 
 reinstalling the bacpage command.
 <procedure>
     <step>
@@ -192,7 +193,7 @@ reinstalling the bacpage command.
         <code-block lang="bash" >cd ~/bacpage</code-block>
     </step>
     <step>
-        Pull the latest version of the pipeline from Github:
+        Pull the latest version of the pipeline from GitHub:
         <code-block lang="bash" >git pull</code-block>
     </step>
     <step>

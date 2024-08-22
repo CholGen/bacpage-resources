@@ -72,7 +72,7 @@ It can be opened and viewed in any web browser.
 <procedure title="Useful options">
     <step>
         <b>bacpage</b> will search through the provided project directory for <code>config.yaml</code> and <code>sample_data.csv</code>. 
-        If its unable to find them, or if you would like to keep them in other locations, you can specify their paths 
+        If it is unable to find them, or if you would like to keep them in other locations, you can specify their paths 
         using the <code>--configfile</code> and <code>--samples</code> options, respectively.
     </step>
     <step>

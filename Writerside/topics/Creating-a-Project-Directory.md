@@ -42,7 +42,7 @@ results are in the same place.
         Create an empty project directory using the <code>bacpage example</code> command. 
         We recommend that you give your project directory an informative name, such as <b>[date]_[sequencing-run-name]</b>
         (for example: <code>20220609_cholera_run1</code>)
-        <p/>Type the following into your terminal window and then press <shortcut>Enter</shortcut>:
+        <p/> Type the following into your terminal window and then press <shortcut>Enter</shortcut>:
         <code-block>bacpage setup [project-directory-name]</code-block>
         <note>Replace <code><b>[project-directory-name]</b></code> with the informative name you created above.</note>
     </step>

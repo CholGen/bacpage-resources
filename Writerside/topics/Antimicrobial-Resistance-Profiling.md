@@ -77,14 +77,14 @@ We will now profile the sequences in your project directory for antimicrobial re
         Run the profiling pipeline with the following command
         <code-block>bacpage profile .</code-block>
         <note>
-            By default, <code>bacpage</code> profiles your sequences against the Comprehensive Antimicrobial Resistence Database 
-            (card). If you would prefer to use a different database, change the "<i>antibiotic_resistance/database</i>" 
+            By default, <code>bacpage</code> profiles your sequences against the Comprehensive Antimicrobial Resistance Database 
+            (card). If you prefer to use a different database, change the "<i>antibiotic_resistance/database</i>" 
             value in <code><b>[project-path]</b>/config.yaml</code> to any database listed by the command: <code>abricate --list</code>.
         </note>
     </step>
 </procedure>
 
-The pipeline will profile your sequences for antimicrobial resistence genes using <code>abricate</code> and save the 
+The pipeline will profile your sequences for antimicrobial resistance genes using <code>abricate</code> and save the 
 results to <code><b>[project-path]</b>/results/reports/antibiotic_resistance_detailed.tsv</code>. The significant 
 columns of the results are as follows:
 <deflist type="narrow">
@@ -95,7 +95,7 @@ columns of the results are as follows:
     <def title="%COVERAGE">Proportion of gene covered by your sample</def>
     <def title="%IDENTITY">Proportion of exact nucleotide matches between the database and your sample</def>
     <def title="PRODUCT">Gene product of the antimicrobial resistance gene</def>
-    <def title="RESISTANCE">Putative antibiotic resistance conferred by gene, seperated by <shortcut>;</shortcut></def>
+    <def title="RESISTANCE">Putative antibiotic resistance conferred by gene, separated by <shortcut>;</shortcut></def>
 </deflist>
 
 A summary of the results is also written to <code><b>[project-path]</b>/results/reports/antibiotic_resistance.tsv</code>.

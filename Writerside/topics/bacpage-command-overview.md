@@ -45,7 +45,7 @@ At the present, the following tools are available in bacpage:
 All bacpage commands have command line options which modify how the analysis is run, and a positional argument
 which specify the directory a command is to be performed in (if not specified bacpage will default to the current 
 working directory).
-Therefore the basic command is as follows:
+Therefore, the basic command is as follows:
 <code-block lang="bash" >bacpage {subcommand} [-options] [project-directory]</code-block>
 
 <tip>

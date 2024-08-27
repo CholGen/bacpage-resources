@@ -6,5 +6,6 @@
                  name="Submitting to NCBI SRA"
                  start-page="submitting-to-ncbi-sra.md">
 
+    <toc-element topic="Transferring-data.md"/>
     <toc-element topic="submitting-to-ncbi-sra.md"/>
 </instance-profile>
